@@ -28,5 +28,10 @@ public static class EndpointRouteBuilderExtensions
 
         ingredientesEndpoint.MapGet("", IngredientesHandlers.GetIngredientesAsync);
 
+        ingredientesEndpoint.MapPost("", () => 
+        {
+            throw new NotImplementedException();
+        });
+
     }
 }
