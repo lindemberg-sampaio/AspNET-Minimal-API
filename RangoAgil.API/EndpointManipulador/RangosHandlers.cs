@@ -55,7 +55,7 @@ public static class RangosHandlers
 
 
 
-    public static async Task<CreatedAtRoute<RangoDTO>> PostRangosAsync
+    public static async Task<CreatedAtRoute<RangoDTO>> CreateRangosAsync
                             (RangoDbContext rangoDbContext
                            , IMapper mapper
                            , [FromBody] RangoParaCriacaoDTO rangoParaCriacaoDTO)
@@ -74,7 +74,7 @@ public static class RangosHandlers
 
 
 
-    public static async Task<Results<NotFound, Ok>> PutRangosAsync
+    public static async Task<Results<NotFound, Ok>> UpdateRangosAsync
                             (RangoDbContext rangoDbContext
                            , IMapper mapper
                            , int rangoId
@@ -98,7 +98,8 @@ public static class RangosHandlers
 
     public static async Task<Results<NotFound, NoContent>> DeleteRangosAsync
                             (RangoDbContext rangoDbContext
-                           , int rangoId)
+                           , int rangoId
+                           , ILogger<RangoDTO> logger)
     {
 
         var rangosEntity = await rangoDbContext.Rangos.FirstOrDefaultAsync(x => x.Id == rangoId);
